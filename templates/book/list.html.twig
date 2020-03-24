@@ -15,21 +15,13 @@ class BookController extends AbstractController
     }
     
      /**
-     * @Route("/book", name="book")
+     * @Route("/book", name="show_all_books")
      */
     public function showBooks()
     {
-        return $this->render('book/list.html.twig');
-            
-        
+        $books= $this->bookRepository->findall();
+        return $this->render('book/list.html.twig', {
+             'books' => $books   
+        ]);
     }
 }
-
-
-
-
-
-
-
-    
-
